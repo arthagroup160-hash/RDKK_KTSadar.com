@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RDKK Pupuk Bersubsidi — KT Sadar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --hitam:#080808;--hitam-2:#0F0F0F;--hitam-3:#161616;--hitam-4:#1E1E1E;
+  --merah:#CC0000;--merah-tua:#8B0000;--merah-t:#FF3333;
+  --putih:#F5F0E8;--putih-b:#FFFFFF;
+  --emas:#C9A84C;--emas-t:#F0CC6A;--emas-r:#7A6030;
+  --silver:#9A9A9A;
+  --be:rgba(201,168,76,0.25);--bm:rgba(204,0,0,0.35);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--hitam);color:var(--putih);font-family:'EB Garamond',Georgia,serif;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999;}
+
+/* HEADER */
+.hdr{position:relative;background:var(--hitam);border-bottom:1px solid var(--be);overflow:hidden;}
+.hdr-stripe{position:absolute;left:0;top:0;bottom:0;width:5px;display:flex;flex-direction:column;}
+.s-r{flex:1;background:var(--merah);}
+.s-w{flex:1;background:var(--putih-b);}
+.hdr::after{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(204,0,0,0.07) 0%,transparent 70%);pointer-events:none;}
+.hdr-lt{height:3px;background:linear-gradient(to right,transparent,var(--emas-r),var(--emas),var(--emas-t),var(--emas),var(--emas-r),transparent);}
+.hdr-lb{height:2px;background:linear-gradient(to right,transparent,var(--merah-tua),var(--merah),var(--merah-tua),transparent);margin-top:1px;}
+.hdr-inner{max-width:1400px;margin:0 auto;padding:28px 48px 28px 60px;display:flex;align-items:center;gap:28px;position:relative;z-index:1;}
+.logo{flex-shrink:0;width:96px;height:96px;}
+.logo-ring{width:100%;height:100%;border-radius:50%;border:2px solid var(--emas);background:radial-gradient(circle at 40% 35%,#182818,#0a120a);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(201,168,76,0.07),0 0 24px rgba(201,168,76,0.12),inset 0 0 20px rgba(0,0,0,0.5);position:relative;overflow:hidden;}
+.logo-ring::before{content:'';position:absolute;inset:5px;border-radius:50%;border:1px solid rgba(201,168,76,0.18);}
+.logo-txt{text-align:center;position:relative;z-index:1;}
+.logo-kt{font-family:'Cinzel',serif;font-size:6.5px;letter-spacing:4px;color:var(--emas);opacity:.75;text-transform:uppercase;display:block;}
+.logo-s{font-family:'Cinzel Decorative',serif;font-size:20px;font-weight:700;color:var(--emas-t);line-height:1;text-shadow:0 0 14px rgba(240,204,106,0.5);display:block;}
+.logo-ico{font-size:16px;display:block;margin-top:2px;}
+.hdr-div{width:1px;height:65px;background:linear-gradient(to bottom,transparent,var(--emas-r),transparent);flex-shrink:0;}
+.hdr-txt{flex:1;}
+.hdr-inst{font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:3.5px;color:var(--emas);opacity:.55;text-transform:uppercase;margin-bottom:7px;}
+.hdr-title{font-family:'Playfair Display',serif;font-size:27px;font-weight:900;line-height:1.1;}
+.hdr-title .r{color:var(--putih-b);}
+.hdr-title .g{color:var(--merah-t);font-style:italic;}
+.hdr-title .a{color:var(--emas);}
+.hdr-sub{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:var(--silver);margin-top:6px;opacity:.7;}
+.hdr-right{text-align:right;flex-shrink:0;}
+.hdr-tahun{font-family:'Cinzel Decorative',serif;font-size:50px;font-weight:700;line-height:1;background:linear-gradient(to bottom,var(--emas-t),var(--emas),var(--emas-r));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 4px 14px rgba(201,168,76,0.28));}
+.hdr-tlabel{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:4px;color:var(--silver);opacity:.4;text-transform:uppercase;margin-top:4px;}
+
+/* MAIN */
+.main{max-width:1400px;margin:0 auto;padding:36px 24px 60px;}
+
+/* INFO */
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px;}
+.info-card{background:var(--hitam-3);border:1px solid var(--be);border-top:2px solid var(--emas-r);border-radius:2px;padding:16px 20px;position:relative;transition:border-top-color .2s;}
+.info-card:hover{border-top-color:var(--emas);}
+.info-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,var(--merah-tua),transparent);}
+.lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--emas);opacity:.55;text-transform:uppercase;margin-bottom:5px;}
+.val{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--putih);}
+
+/* HARGA */
+.harga-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px;}
+.hc{border-radius:3px;padding:22px 26px;display:flex;align-items:center;gap:18px;border:1px solid;position:relative;overflow:hidden;transition:transform .2s;}
+.hc:hover{transform:translateY(-2px);}
+.hc::before{content:'';position:absolute;top:-40px;right:-40px;width:110px;height:110px;border-radius:50%;opacity:.05;}
+.hc-urea{background:linear-gradient(135deg,#0c0c0c,#181818);border-color:rgba(245,240,232,0.12);box-shadow:inset 0 0 30px rgba(255,255,255,0.015),0 4px 20px rgba(0,0,0,0.4);}
+.hc-urea::before{background:#fff;}
+.hc-urea .h-nome{color:rgba(245,240,232,0.45);}
+.hc-urea .h-price{color:var(--putih-b);text-shadow:0 0 18px rgba(255,255,255,0.25);}
+.hc-urea .h-strip{background:linear-gradient(to right,rgba(245,240,232,0.5),transparent);}
+.hc-urea .h-ico{border-color:rgba(245,240,232,0.18);background:rgba(255,255,255,0.03);color:rgba(245,240,232,0.75);}
+.hc-ph{background:linear-gradient(135deg,#0d0404,#180808);border-color:rgba(139,0,0,0.45);box-shadow:inset 0 0 30px rgba(139,0,0,0.06),0 4px 20px rgba(139,0,0,0.18);}
+.hc-ph::before{background:var(--merah);}
+.hc-ph .h-nome{color:rgba(255,170,170,0.45);}
+.hc-ph .h-price{color:#FF7777;text-shadow:0 0 18px rgba(204,0,0,0.35);}
+.hc-ph .h-strip{background:linear-gradient(to right,var(--merah),transparent);}
+.hc-ph .h-ico{border-color:rgba(204,0,0,0.28);background:rgba(204,0,0,0.05);color:#FF9999;}
+.h-ico{width:52px;height:52px;border-radius:50%;border:1px solid;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px;}
+.h-info{flex:1;}
+.h-nome{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;}
+.h-price{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;line-height:1;}
+.h-note{font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--silver);opacity:.55;margin-top:3px;}
+.h-strip{position:absolute;bottom:0;left:0;right:0;height:2px;}
+
+/* KUOTA */
+.kbox{background:var(--hitam-3);border:1px solid var(--be);border-radius:3px;padding:24px 28px;margin-bottom:26px;position:relative;overflow:hidden;}
+.kbox::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--emas),var(--merah),var(--emas));}
+.ktitle{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--emas);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.ktitle::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--be),transparent);}
+.kbars{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.kb-lbl{display:flex;justify-content:space-between;margin-bottom:8px;}
+.kb-name{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;}
+.kb-name.u{color:rgba(230,230,230,0.65);}
+.kb-name.ph{color:rgba(255,130,130,0.75);}
+.kb-pct{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;}
+.kb-pct.u{color:var(--putih);}
+.kb-pct.ph{color:#FF7777;}
+.kb-track{height:8px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;margin-bottom:6px;}
+.kb-fill{height:100%;border-radius:4px;transition:width 1s cubic-bezier(0.4,0,0.2,1);}
+.kb-fill.u{background:linear-gradient(to right,rgba(180,180,180,0.4),rgba(245,240,232,0.85));box-shadow:0 0 8px rgba(245,240,232,0.25);}
+.kb-fill.ph{background:linear-gradient(to right,var(--merah-tua),var(--merah));box-shadow:0 0 8px rgba(204,0,0,0.35);}
+.kb-nums{display:flex;justify-content:space-between;font-family:'EB Garamond',serif;font-size:12px;color:var(--silver);opacity:.55;}
+
+/* TOOLBAR */
+.toolbar{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap;}
+.sw{flex:1;min-width:200px;position:relative;}
+.sw input{width:100%;padding:12px 16px 12px 42px;background:var(--hitam-3);border:1px solid var(--be);border-radius:2px;color:var(--putih);font-family:'EB Garamond',serif;font-size:16px;transition:border-color .2s,box-shadow .2s;}
+.sw input::placeholder{color:var(--silver);opacity:.35;}
+.sw input:focus{outline:none;border-color:var(--emas);box-shadow:0 0 0 1px rgba(201,168,76,0.18);}
+.si{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--emas);opacity:.55;font-size:14px;}
+.toolbar select{padding:12px 14px;background:var(--hitam-3);border:1px solid var(--be);border-radius:2px;color:var(--putih);font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;cursor:pointer;}
+.toolbar select:focus{outline:none;border-color:var(--emas);}
+
+/* TABLE */
+.tw{overflow-x:auto;border:1px solid var(--be);border-radius:3px;box-shadow:0 8px 40px rgba(0,0,0,0.55),inset 0 1px 0 rgba(201,168,76,0.08);}
+table{width:100%;border-collapse:collapse;min-width:1000px;background:var(--hitam-2);}
+thead{position:sticky;top:0;z-index:10;}
+thead tr:first-child{background:linear-gradient(to bottom,#1a0000,#110000);border-bottom:1px solid var(--bm);}
+thead tr:first-child th{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--putih);padding:14px 12px 8px;text-align:center;border-right:1px solid rgba(255,255,255,0.04);}
+thead tr:first-child th.thu{color:rgba(235,235,235,0.8);}
+thead tr:first-child th.thp{color:#FF9999;}
+thead tr:last-child{background:linear-gradient(to bottom,#110000,#080000);border-bottom:2px solid var(--emas-r);}
+thead tr:last-child th{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);opacity:.55;padding:6px 10px 12px;text-align:center;border-right:1px solid rgba(255,255,255,0.03);}
+thead tr:last-child th.su-h{color:rgba(210,210,210,0.45);}
+thead tr:last-child th.sp-h{color:rgba(255,120,120,0.45);}
+tbody tr{border-bottom:1px solid rgba(255,255,255,0.03);transition:background .15s;}
+tbody tr:nth-child(even){background:rgba(255,255,255,0.013);}
+tbody tr:hover{background:rgba(201,168,76,0.045)!important;}
+td{padding:10px 12px;font-family:'EB Garamond',serif;font-size:14px;color:var(--putih);border-right:1px solid rgba(255,255,255,0.025);vertical-align:middle;}
+.tn{text-align:center;font-family:'Cinzel',serif;font-size:10px;color:var(--emas);opacity:.45;width:36px;}
+.tnik{font-size:11px;color:var(--silver);opacity:.45;white-space:nowrap;}
+.tnama{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:var(--putih-b);white-space:nowrap;}
+.tluas{text-align:center;color:var(--emas);opacity:.65;font-weight:600;}
+.tc{text-align:center;font-variant-numeric:tabular-nums;}
+.tu{color:rgba(220,220,220,0.75);}
+.tp{color:#FF9999;}
+.badge{display:inline-block;padding:3px 10px;border-radius:2px;font-family:'Cinzel',serif;font-size:10px;font-weight:600;letter-spacing:.5px;white-space:nowrap;}
+.bok{background:rgba(22,101,52,0.25);border:1px solid rgba(34,197,94,0.25);color:#4ADE80;}
+.blow{background:rgba(120,53,15,0.25);border:1px solid rgba(245,158,11,0.25);color:#FCD34D;}
+.bempty{background:rgba(127,29,29,0.25);border:1px solid rgba(204,0,0,0.25);color:#F87171;}
+.btn-catat{padding:5px 14px;background:transparent;border:1px solid var(--emas-r);border-radius:2px;color:var(--emas);font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-catat:hover{background:var(--emas-r);color:var(--hitam);border-color:var(--emas);box-shadow:0 0 10px rgba(201,168,76,0.25);}
+.btn-done{padding:5px 14px;background:rgba(22,101,52,0.12);border:1px solid rgba(34,197,94,0.18);border-radius:2px;color:#4ADE80;font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;cursor:default;opacity:.55;white-space:nowrap;}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.87);backdrop-filter:blur(6px);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+.mo.show{display:flex;}
+.modal{background:var(--hitam-3);border:1px solid var(--be);border-top:2px solid var(--emas);border-radius:4px;width:100%;max-width:480px;box-shadow:0 24px 80px rgba(0,0,0,0.8);animation:mIn .25s cubic-bezier(0.34,1.56,0.64,1);overflow:hidden;}
+@keyframes mIn{from{transform:scale(0.9) translateY(20px);opacity:0;}to{transform:scale(1) translateY(0);opacity:1;}}
+.mh{padding:22px 28px 18px;border-bottom:1px solid var(--be);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.mh-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--putih-b);}
+.mh-sub{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:var(--silver);opacity:.55;margin-top:2px;}
+.mcls{background:none;border:1px solid rgba(255,255,255,0.1);color:var(--silver);width:28px;height:28px;border-radius:2px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;}
+.mcls:hover{border-color:var(--merah);color:var(--merah);}
+.mb{padding:20px 28px;}
+.mpetani{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.14);border-left:3px solid var(--emas);border-radius:2px;padding:12px 16px;margin-bottom:20px;}
+.mp-nama{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--emas-t);}
+.mp-nik{font-family:'EB Garamond',serif;font-size:12px;color:var(--silver);opacity:.45;margin-top:2px;letter-spacing:.5px;}
+.msec{margin-bottom:16px;}
+.msec-title{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid;}
+.msec-title.ut{color:rgba(210,210,210,0.55);border-color:rgba(210,210,210,0.08);}
+.msec-title.pt{color:rgba(255,120,120,0.65);border-color:rgba(255,120,120,0.12);}
+.mrow{display:flex;align-items:center;gap:12px;margin-bottom:7px;flex-wrap:wrap;}
+.mki{flex:1;font-family:'EB Garamond',serif;font-size:14px;color:var(--silver);opacity:.65;}
+.mki strong{font-family:'Playfair Display',serif;font-size:16px;color:var(--putih);}
+.mig{display:flex;align-items:center;gap:8px;}
+.mil{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;color:var(--silver);opacity:.45;text-transform:uppercase;white-space:nowrap;}
+.mi{width:88px;padding:8px 10px;background:var(--hitam-4);border:1px solid var(--be);border-radius:2px;color:var(--putih-b);font-family:'Playfair Display',serif;font-size:18px;font-weight:700;text-align:center;transition:border-color .2s;}
+.mi:focus{outline:none;}
+.mi.ui:focus{border-color:rgba(200,200,200,0.45);}
+.mi.pi:focus{border-color:var(--merah);}
+.mcalc{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:var(--silver);opacity:.45;min-height:18px;}
+.mtotal{background:linear-gradient(135deg,rgba(201,168,76,0.05),rgba(201,168,76,0.09));border:1px solid rgba(201,168,76,0.18);border-radius:2px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-top:14px;}
+.mt-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--emas);opacity:.65;text-transform:uppercase;}
+.mt-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--emas-t);text-shadow:0 0 14px rgba(240,204,106,0.25);}
+.mf{padding:16px 28px 24px;display:flex;gap:10px;}
+.bbatal{flex:1;padding:12px;background:transparent;border:1px solid rgba(255,255,255,0.1);border-radius:2px;color:var(--silver);font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.bbatal:hover{border-color:var(--merah);color:var(--merah);}
+.bok-btn{flex:2;padding:12px;background:linear-gradient(135deg,var(--merah-tua),var(--merah));border:1px solid var(--merah);border-radius:2px;color:var(--putih-b);font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(204,0,0,0.25);}
+.bok-btn:hover{background:linear-gradient(135deg,var(--merah),var(--merah-t));box-shadow:0 6px 20px rgba(204,0,0,0.45);transform:translateY(-1px);}
+
+/* RIWAYAT */
+.sdiv{display:flex;align-items:center;gap:16px;margin:40px 0 18px;}
+.sdiv-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--be),transparent);}
+.sdiv-txt{font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:var(--emas);opacity:.45;text-transform:uppercase;white-space:nowrap;}
+.rwlist{display:flex;flex-direction:column;gap:8px;max-height:320px;overflow-y:auto;}
+.rwlist::-webkit-scrollbar{width:3px;}
+.rwlist::-webkit-scrollbar-track{background:var(--hitam-3);}
+.rwlist::-webkit-scrollbar-thumb{background:var(--emas-r);border-radius:2px;}
+.ri{background:var(--hitam-3);border:1px solid rgba(255,255,255,0.04);border-left:2px solid var(--merah);border-radius:2px;padding:12px 18px;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:16px;animation:sIn .3s ease;}
+@keyframes sIn{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:translateX(0);}}
+.ri-wkt{font-family:'Cinzel',serif;font-size:9px;color:var(--emas);opacity:.35;letter-spacing:1px;white-space:nowrap;}
+.ri-nama{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--putih-b);}
+.ri-det{font-family:'EB Garamond',serif;font-size:13px;font-style:italic;color:var(--silver);opacity:.5;text-align:right;}
+.ri-tot{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--emas);white-space:nowrap;}
+.rw-empty{font-family:'EB Garamond',serif;font-style:italic;color:var(--silver);opacity:.22;text-align:center;padding:32px;font-size:15px;}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--be);padding:22px;text-align:center;position:relative;}
+.footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:180px;height:1px;background:linear-gradient(to right,transparent,var(--emas),transparent);}
+.footer-txt{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--silver);opacity:.2;text-transform:uppercase;}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;right:28px;background:var(--hitam-4);border:1px solid var(--emas-r);border-left:3px solid var(--emas);color:var(--emas-t);padding:14px 20px;border-radius:3px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1.5px;box-shadow:0 8px 32px rgba(0,0,0,0.6);z-index:9998;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(0.34,1.56,0.64,1);max-width:320px;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+@media(max-width:900px){.info-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){
+  .hdr-inner{padding:18px 18px 18px 28px;flex-wrap:wrap;gap:14px;}
+  .hdr-title{font-size:20px;}.hdr-tahun{font-size:38px;}
+  .logo{width:72px;height:72px;}.logo-s{font-size:14px;}
+  .harga-grid{grid-template-columns:1fr;}.kbars{grid-template-columns:1fr;}
+  .ri{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;}
+  .ri-wkt{grid-column:1;}.ri-tot{grid-column:2;text-align:right;}
+  .ri-nama{grid-column:1;}.ri-det{grid-column:2;}
+}
+
+/* ── NAV TAB ── */
+.nav-tab{background:var(--hitam-2);border-bottom:2px solid var(--be);display:flex;max-width:100%;}
+.nav-tab-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;gap:0;width:100%;}
+.tab-btn{padding:16px 32px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--silver);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;margin-bottom:-2px;display:flex;align-items:center;gap:8px;opacity:.5;}
+.tab-btn:hover{color:var(--putih);opacity:.8;}
+.tab-btn.active{color:var(--emas);border-bottom-color:var(--emas);opacity:1;}
+.tab-btn .ticon{font-size:14px;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* ── KASIR PINTAR ── */
+.kasir-wrap{max-width:1400px;margin:0 auto;padding:32px 24px 60px;display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start;}
+@media(max-width:900px){.kasir-wrap{grid-template-columns:1fr;}}
+
+/* Kiri: Pencarian & Keranjang */
+.kasir-left{}
+.k-search-box{background:var(--hitam-3);border:1px solid var(--be);border-radius:3px;padding:20px;margin-bottom:16px;}
+.k-search-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--emas);text-transform:uppercase;margin-bottom:12px;opacity:.7;}
+.k-search-row{display:flex;gap:10px;}
+.k-search-input{flex:1;padding:12px 16px;background:var(--hitam-4);border:1px solid var(--be);border-radius:2px;color:var(--putih-b);font-family:'Playfair Display',serif;font-size:16px;transition:border-color .2s;}
+.k-search-input:focus{outline:none;border-color:var(--emas);}
+.k-search-input::placeholder{color:var(--silver);opacity:.3;font-size:14px;}
+
+/* Daftar petani hasil pencarian */
+.k-results{margin-bottom:16px;display:flex;flex-direction:column;gap:6px;max-height:280px;overflow-y:auto;}
+.k-results::-webkit-scrollbar{width:3px;}
+.k-results::-webkit-scrollbar-thumb{background:var(--emas-r);border-radius:2px;}
+.k-pet-card{background:var(--hitam-3);border:1px solid rgba(255,255,255,0.04);border-left:2px solid var(--emas-r);border-radius:2px;padding:12px 16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.k-pet-card:hover{border-left-color:var(--emas);background:rgba(201,168,76,0.05);}
+.k-pet-card.selected{border-left-color:var(--emas);border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.07);}
+.k-pet-nama{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--putih-b);}
+.k-pet-nik{font-family:'EB Garamond',serif;font-size:11px;color:var(--silver);opacity:.45;}
+.k-pet-kuota{text-align:right;flex-shrink:0;}
+.k-pet-ku{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;color:rgba(220,220,220,0.5);}
+.k-pet-kp{font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;color:rgba(255,130,130,0.5);}
+.k-empty-res{font-family:'EB Garamond',serif;font-style:italic;color:var(--silver);opacity:.25;padding:20px;text-align:center;}
+
+/* Panel Input Transaksi */
+.k-trx-panel{background:var(--hitam-3);border:1px solid var(--be);border-top:2px solid var(--emas-r);border-radius:3px;padding:20px;margin-bottom:16px;}
+.k-trx-panel.has-pet{border-top-color:var(--emas);}
+.k-trx-petani{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-left:3px solid var(--emas);border-radius:2px;padding:12px 16px;margin-bottom:18px;}
+.k-trx-petani.empty{border-left-color:rgba(255,255,255,0.1);background:rgba(255,255,255,0.02);}
+.k-trx-pnama{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--emas-t);}
+.k-trx-pnama.placeholder{color:var(--silver);opacity:.3;font-size:14px;font-style:italic;}
+.k-trx-pnik{font-family:'EB Garamond',serif;font-size:11px;color:var(--silver);opacity:.4;margin-top:2px;}
+
+.k-pupuk-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.k-pupuk-box{background:var(--hitam-4);border:1px solid;border-radius:2px;padding:14px;}
+.k-pupuk-box.urea-box{border-color:rgba(220,220,220,0.1);}
+.k-pupuk-box.npk-box{border-color:rgba(204,0,0,0.2);}
+.k-pb-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.k-pb-label.u{color:rgba(220,220,220,0.5);}
+.k-pb-label.p{color:rgba(255,130,130,0.6);}
+.k-pb-sisa{font-family:'EB Garamond',serif;font-size:12px;color:var(--silver);opacity:.5;margin-bottom:8px;}
+.k-pb-sisa strong{font-family:'Playfair Display',serif;font-size:14px;color:var(--putih);}
+.k-pb-input{width:100%;padding:10px;background:var(--hitam);border:1px solid;border-radius:2px;color:var(--putih-b);font-family:'Playfair Display',serif;font-size:20px;font-weight:700;text-align:center;transition:border-color .2s;}
+.k-pb-input:focus{outline:none;}
+.k-pb-input.ui{border-color:rgba(220,220,220,0.15);}
+.k-pb-input.ui:focus{border-color:rgba(220,220,220,0.5);}
+.k-pb-input.pi{border-color:rgba(204,0,0,0.2);}
+.k-pb-input.pi:focus{border-color:var(--merah);}
+.k-pb-calc{font-family:'EB Garamond',serif;font-size:11px;font-style:italic;color:var(--silver);opacity:.45;margin-top:6px;min-height:16px;}
+.k-pb-karung{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;}
+.k-karung-btn{padding:3px 10px;background:transparent;border:1px solid var(--emas-r);border-radius:2px;color:var(--emas);font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;cursor:pointer;transition:all .15s;}
+.k-karung-btn:hover{background:var(--emas-r);color:var(--hitam);}
+
+/* Kanan: Struk / Ringkasan */
+.kasir-right{}
+.k-struk{background:var(--hitam-3);border:1px solid var(--be);border-radius:3px;overflow:hidden;position:sticky;top:16px;}
+.k-struk-head{background:linear-gradient(135deg,var(--merah-tua),var(--merah));padding:20px 24px;}
+.k-struk-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:var(--putih-b);display:flex;align-items:center;gap:10px;}
+.k-struk-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px;}
+.k-struk-body{padding:20px 24px;}
+.k-struk-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+.k-struk-row:last-child{border-bottom:none;}
+.k-sr-label{font-family:'EB Garamond',serif;font-size:14px;color:var(--silver);opacity:.65;}
+.k-sr-val{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--putih);}
+.k-struk-total{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.1));border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:16px 20px;margin:16px 0;display:flex;justify-content:space-between;align-items:center;}
+.k-st-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:var(--emas);opacity:.65;text-transform:uppercase;}
+.k-st-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--emas-t);text-shadow:0 0 16px rgba(240,204,106,0.2);}
+.k-kembalian{background:rgba(22,101,52,0.12);border:1px solid rgba(34,197,94,0.2);border-radius:2px;padding:12px 16px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin-bottom:16px;}
+.k-kem-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.k-kem-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#4ADE80;opacity:.7;}
+.k-bayar-input{padding:10px 12px;background:var(--hitam-4);border:1px solid rgba(34,197,94,0.3);border-radius:2px;color:#4ADE80;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;width:100%;transition:border-color .2s;}
+.k-bayar-input:focus{outline:none;border-color:#4ADE80;}
+.k-kem-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#4ADE80;text-align:right;}
+.k-kem-val.kurang{color:#F87171;}
+.k-struk-foot{padding:0 24px 20px;}
+.k-btn-proses{width:100%;padding:16px;background:linear-gradient(135deg,var(--merah-tua),var(--merah));border:none;border-radius:3px;color:var(--putih-b);font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(204,0,0,0.3);margin-bottom:8px;}
+.k-btn-proses:hover{background:linear-gradient(135deg,var(--merah),var(--merah-t));transform:translateY(-1px);box-shadow:0 6px 20px rgba(204,0,0,0.45);}
+.k-btn-proses:disabled{opacity:.3;cursor:not-allowed;transform:none;}
+.k-btn-reset{width:100%;padding:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);border-radius:3px;color:var(--silver);font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.k-btn-reset:hover{border-color:var(--merah);color:var(--merah);}
+
+/* Struk cetak sukses */
+.k-sukses-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);backdrop-filter:blur(8px);z-index:2000;align-items:center;justify-content:center;padding:20px;}
+.k-sukses-overlay.show{display:flex;}
+.k-struk-cetak{background:var(--putih-b);color:#1a1a1a;width:100%;max-width:360px;border-radius:4px;overflow:hidden;font-family:'EB Garamond',serif;animation:mIn .3s cubic-bezier(0.34,1.56,0.64,1);}
+.ksc-head{background:var(--merah-tua);color:var(--putih-b);padding:20px;text-align:center;}
+.ksc-logo{font-family:'Cinzel Decorative',serif;font-size:18px;font-weight:700;color:var(--emas-t);}
+.ksc-sub{font-size:10px;font-family:'Cinzel',serif;letter-spacing:2px;opacity:.7;margin-top:4px;}
+.ksc-body{padding:20px;}
+.ksc-divider{border:none;border-top:1px dashed #ccc;margin:12px 0;}
+.ksc-row{display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;}
+.ksc-row-label{color:#555;}
+.ksc-row-val{font-weight:700;color:#1a1a1a;}
+.ksc-total-row{display:flex;justify-content:space-between;background:#f5f5f5;padding:12px;border-radius:2px;margin:10px 0;}
+.ksc-total-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase;}
+.ksc-total-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--merah-tua);}
+.ksc-kembalian{display:flex;justify-content:space-between;color:#15803D;font-weight:700;font-size:14px;margin-bottom:10px;}
+.ksc-footer{text-align:center;font-size:11px;color:#888;font-style:italic;padding-top:8px;}
+.ksc-actions{padding:16px 20px;display:flex;gap:10px;border-top:1px solid #eee;}
+.ksc-btn-tutup{flex:1;padding:12px;background:#f0f0f0;border:none;border-radius:2px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;color:#666;}
+.ksc-btn-cetak{flex:2;padding:12px;background:var(--merah-tua);border:none;border-radius:2px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;color:#fff;}
+
+/* Riwayat kasir */
+.k-riwayat{background:var(--hitam-3);border:1px solid var(--be);border-radius:3px;padding:20px;margin-top:16px;}
+.k-rw-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--emas);text-transform:uppercase;margin-bottom:14px;opacity:.6;}
+.k-rw-list{display:flex;flex-direction:column;gap:6px;max-height:240px;overflow-y:auto;}
+.k-rw-list::-webkit-scrollbar{width:3px;}
+.k-rw-list::-webkit-scrollbar-thumb{background:var(--emas-r);border-radius:2px;}
+.k-rw-item{background:rgba(255,255,255,0.025);border-left:2px solid var(--merah);border-radius:2px;padding:10px 14px;display:flex;flex-direction:column;gap:3px;animation:sIn .3s ease;}
+.k-rw-wkt{font-family:'Cinzel',serif;font-size:8px;color:var(--emas);opacity:.35;letter-spacing:1px;}
+.k-rw-nama{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--putih-b);}
+.k-rw-det{font-family:'EB Garamond',serif;font-size:12px;font-style:italic;color:var(--silver);opacity:.5;}
+.k-rw-tot{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--emas);}
+.k-rw-empty{font-family:'EB Garamond',serif;font-style:italic;color:var(--silver);opacity:.22;text-align:center;padding:20px;font-size:14px;}
+
+@media print{
+  body>*:not(.k-struk-cetak){display:none!important;}
+  .k-struk-cetak{max-width:100%;box-shadow:none;}
+  .ksc-actions{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-stripe"><div class="s-r"></div><div class="s-w"></div></div>
+  <div class="hdr-lt"></div>
+  <div class="hdr-inner">
+    <div class="logo">
+      <div class="logo-ring">
+        <div class="logo-txt">
+          <span class="logo-kt">Kelompok Tani</span>
+          <span class="logo-s">SADAR</span>
+          <span class="logo-ico">🌾</span>
+        </div>
+      </div>
+    </div>
+    <div class="hdr-div"></div>
+    <div class="hdr-txt">
+      <div class="hdr-inst">Rencana Definitif Kebutuhan Kelompok · Pupuk Bersubsidi</div>
+      <div class="hdr-title">
+        <span class="r">RDKK</span>&nbsp;<span class="g">Pupuk</span>&nbsp;<span class="a">Bersubsidi</span>
+      </div>
+      <div class="hdr-sub">KT Sadar · Desa/Kel. 3202272002 · Kec. Gununguruh · RT 0000001259 – Tani Murni · Subsektor Tanaman Pangan · Komoditas Padi</div>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-tahun">2026</div>
+      <div class="hdr-tlabel">Tahun Anggaran</div>
+    </div>
+  </div>
+  <div class="hdr-lb"></div>
+</div>
+
+<!-- NAV TAB -->
+<div class="nav-tab">
+  <div class="nav-tab-inner">
+    <button class="tab-btn active" onclick="switchTab('rdkk')" id="tab-rdkk">
+      <span class="ticon">📋</span> Data RDKK
+    </button>
+    <button class="tab-btn" onclick="switchTab('kasir')" id="tab-kasir">
+      <span class="ticon">🏪</span> Kasir Pintar
+    </button>
+  </div>
+</div>
+
+<!-- TAB: RDKK -->
+<div class="tab-panel active" id="panel-rdkk">
+<div class="main">
+  <div class="info-grid">
+    <div class="info-card"><div class="lbl">Kecamatan</div><div class="val">Gununguruh</div></div>
+    <div class="info-card"><div class="lbl">Kelompok Tani</div><div class="val">KT Sadar</div></div>
+    <div class="info-card"><div class="lbl">Total Anggota</div><div class="val" id="tot-ang">— Petani</div></div>
+    <div class="info-card"><div class="lbl">Komoditas</div><div class="val">Padi Sawah</div></div>
+  </div>
+
+  <div class="harga-grid">
+    <div class="hc hc-urea">
+      <div class="h-ico">🧪</div>
+      <div class="h-info">
+        <div class="h-nome">Pupuk Urea</div>
+        <div class="h-price">Rp 92.000</div>
+        <div class="h-note">per karung · isi 50 kg · HET Bersubsidi</div>
+      </div>
+      <div class="h-strip"></div>
+    </div>
+    <div class="hc hc-ph">
+      <div class="h-ico">🌱</div>
+      <div class="h-info">
+        <div class="h-nome">Pupuk Phonska / NPK</div>
+        <div class="h-price">Rp 95.000</div>
+        <div class="h-note">per karung · isi 50 kg · HET Bersubsidi</div>
+      </div>
+      <div class="h-strip"></div>
+    </div>
+  </div>
+
+  <div class="kbox">
+    <div class="ktitle">📊 Ringkasan Kuota Kelompok</div>
+    <div class="kbars">
+      <div>
+        <div class="kb-lbl">
+          <span class="kb-name u">🧪 Urea</span>
+          <span class="kb-pct u" id="pu">—</span>
+        </div>
+        <div class="kb-track"><div class="kb-fill u" id="bu" style="width:100%"></div></div>
+        <div class="kb-nums"><span>Sisa: <strong id="su">—</strong> kg</span><span>Kuota: <strong id="qu">—</strong> kg</span></div>
+      </div>
+      <div>
+        <div class="kb-lbl">
+          <span class="kb-name ph">🌱 Phonska/NPK</span>
+          <span class="kb-pct ph" id="pp">—</span>
+        </div>
+        <div class="kb-track"><div class="kb-fill ph" id="bp" style="width:100%"></div></div>
+        <div class="kb-nums"><span>Sisa: <strong id="sp">—</strong> kg</span><span>Kuota: <strong id="qp">—</strong> kg</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="sw">
+      <span class="si">🔍</span>
+      <input type="text" id="srch" placeholder="Cari nama petani atau NIK…" oninput="ft()">
+    </div>
+    <select id="fst" onchange="ft()">
+      <option value="all">SEMUA PETANI</option>
+      <option value="ada">MASIH ADA KUOTA</option>
+      <option value="habis">KUOTA HABIS</option>
+    </select>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">No</th>
+          <th rowspan="2">NIK</th>
+          <th rowspan="2">Nama Petani</th>
+          <th rowspan="2">Luas (Ha)</th>
+          <th colspan="4" class="thu">🧪 UREA (kg)</th>
+          <th colspan="4" class="thp">🌱 NPK / PHONSKA (kg)</th>
+          <th rowspan="2">Aksi</th>
+        </tr>
+        <tr>
+          <th class="su-h">Kuota</th><th class="su-h">Diambil</th><th class="su-h">Sisa</th><th class="su-h">Total Bayar</th>
+          <th class="sp-h">Kuota</th><th class="sp-h">Diambil</th><th class="sp-h">Sisa</th><th class="sp-h">Total Bayar</th>
+        </tr>
+      </thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+
+  <div class="sdiv">
+    <div class="sdiv-line"></div>
+    <div class="sdiv-txt">Riwayat Pengambilan</div>
+    <div class="sdiv-line"></div>
+  </div>
+  <div class="rwlist" id="rwlist"><div class="rw-empty">Belum ada riwayat pengambilan</div></div>
+</div><!-- /main -->
+</div><!-- /panel-rdkk -->
+
+<!-- TAB: KASIR PINTAR -->
+<div class="tab-panel" id="panel-kasir">
+<div class="kasir-wrap">
+
+  <!-- KIRI -->
+  <div class="kasir-left">
+
+    <!-- Pencarian Petani -->
+    <div class="k-search-box">
+      <div class="k-search-title">🔍 Cari Petani</div>
+      <div class="k-search-row">
+        <input class="k-search-input" id="k-srch" type="text" placeholder="Ketik nama atau NIK petani…" oninput="kCari()" autocomplete="off">
+      </div>
+    </div>
+    <div class="k-results" id="k-results">
+      <div class="k-empty-res">Ketik nama petani untuk memulai transaksi</div>
+    </div>
+
+    <!-- Input Transaksi -->
+    <div class="k-trx-panel" id="k-trx-panel">
+      <div class="k-trx-petani empty" id="k-trx-petani">
+        <div class="k-trx-pnama placeholder" id="k-pnama">Pilih petani dari daftar pencarian</div>
+        <div class="k-trx-pnik" id="k-pnik"></div>
+      </div>
+
+      <div class="k-pupuk-row">
+        <!-- UREA -->
+        <div class="k-pupuk-box urea-box">
+          <div class="k-pb-label u">🧪 UREA</div>
+          <div class="k-pb-sisa">Sisa: <strong id="k-sisa-u">— kg</strong></div>
+          <input type="number" class="k-pb-input ui" id="k-inp-u" min="0" value="0" placeholder="0" oninput="kHitung()" disabled>
+          <div class="k-pb-calc" id="k-calc-u">—</div>
+          <div class="k-pb-karung" id="k-kar-u"></div>
+        </div>
+        <!-- NPK -->
+        <div class="k-pupuk-box npk-box">
+          <div class="k-pb-label p">🌱 NPK</div>
+          <div class="k-pb-sisa">Sisa: <strong id="k-sisa-p">— kg</strong></div>
+          <input type="number" class="k-pb-input pi" id="k-inp-p" min="0" value="0" placeholder="0" oninput="kHitung()" disabled>
+          <div class="k-pb-calc" id="k-calc-p">—</div>
+          <div class="k-pb-karung" id="k-kar-p"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Riwayat Kasir -->
+    <div class="k-riwayat">
+      <div class="k-rw-title">📜 Riwayat Transaksi Hari Ini</div>
+      <div class="k-rw-list" id="k-rw-list">
+        <div class="k-rw-empty">Belum ada transaksi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KANAN: Struk -->
+  <div class="kasir-right">
+    <div class="k-struk" id="k-struk">
+      <div class="k-struk-head">
+        <div class="k-struk-title">🏪 Kasir Pintar</div>
+        <div class="k-struk-sub">KT Sadar · Gununguruh · 2026</div>
+      </div>
+      <div class="k-struk-body">
+        <div class="k-struk-row">
+          <span class="k-sr-label">Petani</span>
+          <span class="k-sr-val" id="ks-nama">—</span>
+        </div>
+        <div class="k-struk-row">
+          <span class="k-sr-label">NIK</span>
+          <span class="k-sr-val" id="ks-nik" style="font-size:11px;opacity:.6">—</span>
+        </div>
+        <div class="k-struk-row">
+          <span class="k-sr-label">Urea</span>
+          <span class="k-sr-val" id="ks-urea">— kg</span>
+        </div>
+        <div class="k-struk-row">
+          <span class="k-sr-label">Harga Urea</span>
+          <span class="k-sr-val" id="ks-h-urea">—</span>
+        </div>
+        <div class="k-struk-row">
+          <span class="k-sr-label">NPK/Phonska</span>
+          <span class="k-sr-val" id="ks-npk">— kg</span>
+        </div>
+        <div class="k-struk-row">
+          <span class="k-sr-label">Harga NPK</span>
+          <span class="k-sr-val" id="ks-h-npk">—</span>
+        </div>
+      </div>
+      <div style="padding:0 24px;">
+        <div class="k-struk-total">
+          <div class="k-st-label">Total</div>
+          <div class="k-st-val" id="ks-total">Rp 0</div>
+        </div>
+        <!-- Bayar & Kembalian -->
+        <div style="margin-bottom:12px;">
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:var(--emas);opacity:.6;text-transform:uppercase;margin-bottom:6px;">Uang Dibayar</div>
+          <input type="number" class="k-bayar-input" id="k-bayar" placeholder="0" oninput="kKembalian()" min="0">
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid rgba(255,255,255,0.05);">
+          <span style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:#4ADE80;opacity:.7;text-transform:uppercase;">Kembalian</span>
+          <span class="k-kem-val" id="ks-kembalian">Rp 0</span>
+        </div>
+      </div>
+      <div class="k-struk-foot">
+        <button class="k-btn-proses" id="k-btn-proses" onclick="kProses()" disabled>
+          ✅ Proses Transaksi
+        </button>
+        <button class="k-btn-reset" onclick="kReset()">🔄 Reset / Transaksi Baru</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /kasir-wrap -->
+</div><!-- /panel-kasir -->
+
+<div class="footer">
+  <div class="footer-txt">RDKK · Pupuk Bersubsidi · KT Sadar · Kec. Gununguruh · Kab. Sukabumi · Tahun 2026 · erdkk25.pertanian.go.id</div>
+</div>
+
+<!-- MODAL -->
+<div class="mo" id="mo">
+  <div class="modal">
+    <div class="mh">
+      <div><div class="mh-title">Catat Pengambilan Pupuk</div><div class="mh-sub">Masukkan jumlah pupuk yang diambil (kg)</div></div>
+      <button class="mcls" onclick="tutup()">✕</button>
+    </div>
+    <div class="mb">
+      <div class="mpetani">
+        <div class="mp-nama" id="mn">—</div>
+        <div class="mp-nik" id="mnik">NIK: —</div>
+      </div>
+      <div class="msec">
+        <div class="msec-title ut">🧪 Urea — Rp 92.000 / karung (50 kg)</div>
+        <div class="mrow">
+          <div class="mki">Sisa kuota: <strong id="msu">0</strong> kg</div>
+          <div class="mig"><span class="mil">Ambil (kg):</span><input type="number" class="mi ui" id="iu" min="0" value="0" oninput="ht()"></div>
+        </div>
+        <div class="mcalc" id="cu">—</div>
+      </div>
+      <div class="msec">
+        <div class="msec-title pt">🌱 Phonska — Rp 95.000 / karung (50 kg)</div>
+        <div class="mrow">
+          <div class="mki">Sisa kuota: <strong id="msp">0</strong> kg</div>
+          <div class="mig"><span class="mil">Ambil (kg):</span><input type="number" class="mi pi" id="ip" min="0" value="0" oninput="ht()"></div>
+        </div>
+        <div class="mcalc" id="cp">—</div>
+      </div>
+      <div class="mtotal">
+        <div class="mt-lbl">Total Pembayaran</div>
+        <div class="mt-val" id="mtv">Rp 0</div>
+      </div>
+    </div>
+    <div class="mf">
+      <button class="bbatal" onclick="tutup()">Batal</button>
+      <button class="bok-btn" onclick="konfirm()">✅ Konfirmasi Pengambilan</button>
+    </div>
+  </div>
+</div>
+
+<!-- STRUK SUKSES -->
+<div class="k-sukses-overlay" id="k-sukses-overlay">
+  <div class="k-struk-cetak" id="k-struk-cetak">
+    <div class="ksc-head">
+      <div class="ksc-logo">🌾 KT SADAR</div>
+      <div class="ksc-sub">PUPUK BERSUBSIDI · GUNUNGURUH · 2026</div>
+    </div>
+    <div class="ksc-body">
+      <div class="ksc-row"><span class="ksc-row-label">Tanggal</span><span class="ksc-row-val" id="sc-tgl">—</span></div>
+      <div class="ksc-row"><span class="ksc-row-label">Petani</span><span class="ksc-row-val" id="sc-nama">—</span></div>
+      <div class="ksc-row"><span class="ksc-row-label">NIK</span><span class="ksc-row-val" id="sc-nik" style="font-size:11px">—</span></div>
+      <hr class="ksc-divider">
+      <div id="sc-items"></div>
+      <hr class="ksc-divider">
+      <div class="ksc-total-row">
+        <span class="ksc-total-label">Total</span>
+        <span class="ksc-total-val" id="sc-total">—</span>
+      </div>
+      <div class="ksc-kembalian">
+        <span>Dibayar</span><span id="sc-bayar">—</span>
+      </div>
+      <div class="ksc-kembalian">
+        <span>Kembalian</span><span id="sc-kembalian">—</span>
+      </div>
+      <hr class="ksc-divider">
+      <div class="ksc-footer">Terima kasih · Pupuk tepat guna untuk panen berlimpah 🌾</div>
+    </div>
+    <div class="ksc-actions">
+      <button class="ksc-btn-tutup" onclick="kTutupStruk()">✕ Tutup</button>
+      <button class="ksc-btn-cetak" onclick="window.print()">🖨️ Cetak Struk</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══ TAB SWITCHING ══
+function switchTab(t){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  document.getElementById('panel-'+t).classList.add('active');
+  if(t==='kasir') kRenderRw();
+}
+// Kolom: id, NIK, Nama, Luas(Ha), Kuota Urea JML, Kuota NPK JML
+// Kuota = MT1+MT2+MT3 sesuai kolom JML di foto
+// ══════════════════════════════════════════════════════════════
+const P = [
+  // ══ HALAMAN 1 (No 1–22) ══
+  // No | NIK               | Nama                  | Luas  | UreaMT1|MT2|MT3|JML | NPKMT1|MT2|MT3|JML
+  {id:1,  nik:"3202270107580100", nama:"AANG",                    luas:2.400, qU:660,  qN:600  },
+  // 2,400Ha | Urea:220+220+220=660 | NPK:200+200+200=600
+  {id:2,  nik:"3202271230855001", nama:"ADANG",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:3,  nik:"3202270174002A",   nama:"ADE ANWARI",              luas:0.800, qU:204,  qN:186  },
+  // 0,800Ha | Urea:68+68+68=204   | NPK:62+62+62=186
+  {id:4,  nik:"3202270516100005", nama:"ADE JAPAR",               luas:0.750, qU:204,  qN:186  },
+  // 0,750Ha | Urea:68+68+68=204   | NPK:62+62+62=186
+  {id:5,  nik:"3202271605880004", nama:"ADE RAHMAT",              luas:2.400, qU:660,  qN:600  },
+  // 2,400Ha | Urea:220+220+220=660 | NPK:200+200+200=600
+  {id:6,  nik:"3202271815100001", nama:"AEP",                     luas:0.750, qU:180,  qN:165  },
+  // 0,750Ha | Urea:60+60+60=180   | NPK:55+55+55=165
+  {id:7,  nik:"3202271205880006", nama:"AGUS",                    luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:8,  nik:"3202270762800089", nama:"ALI",                     luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:9,  nik:"3202270107540027", nama:"ANUN",                    luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:10, nik:"3202270107550071", nama:"ANWAR",                   luas:1.200, qU:330,  qN:300  },
+  // 1,200Ha | Urea:110+110+110=330 | NPK:100+100+100=300
+  {id:11, nik:"3202270307790003", nama:"APUD SARIPUDIN",          luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:12, nik:"3202270108730003", nama:"ASUM SUMARNA",            luas:0.510, qU:138,  qN:126  },
+  // 0,510Ha | Urea:46+46+46=138   | NPK:42+42+42=126
+  {id:13, nik:"3202273004640002", nama:"ATENG SULAEMAN",          luas:0.300, qU:81,   qN:75   },
+  // 0,300Ha | Urea:27+27+27=81    | NPK:25+25+25=75
+  {id:14, nik:"3202270107570046", nama:"BIBIN",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:15, nik:"3202274206500001", nama:"CICIH",                   luas:1.440, qU:396,  qN:360  },
+  // 1,440Ha | Urea:132+132+132=396 | NPK:120+120+120=360
+  {id:16, nik:"3202270158900091", nama:"CUCUP",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:17, nik:"3202271206380005", nama:"DADAN",                   luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:18, nik:"3202271008830002", nama:"DASEP AHMAD SAEPULOH",    luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:19, nik:"3202270407800003", nama:"DUCE",                    luas:0.750, qU:204,  qN:186  },
+  // 0,750Ha | Urea:68+68+68=204   | NPK:62+62+62=186
+  {id:20, nik:"3202270107510038", nama:"DULOH",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:21, nik:"3202270107680099", nama:"DULOH",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:22, nik:"3202270107640068", nama:"ECE",                     luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+
+  // ══ HALAMAN 2 (No 23–57) ══
+  {id:23, nik:"3202270107440083", nama:"ECE",                     luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:24, nik:"3202270107650001", nama:"EMAN",                    luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:25, nik:"3202270108570001", nama:"EMAN SULAEMAN",           luas:3.000, qU:825,  qN:750  },
+  // 3,000Ha | Urea:275+275+275=825 | NPK:250+250+250=750
+  {id:26, nik:"3202270655000002", nama:"EMAN SULAEMAN",           luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:27, nik:"3202271208690001", nama:"EMPUD",                   luas:3.000, qU:825,  qN:750  },
+  // 3,000Ha | Urea:275+275+275=825 | NPK:250+250+250=750
+  {id:28, nik:"3202274930870002", nama:"ENDED",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:29, nik:"3202274938730002", nama:"ENUNG NURHASANAH",        luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:30, nik:"3202270308720004", nama:"ERIK ANDRIANA",           luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:31, nik:"3202274107840068", nama:"EROS",                    luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:32, nik:"3202274197860094", nama:"HARISNA SLIANDA",         luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:33, nik:"3202274338770007", nama:"HINDARSAH",               luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:34, nik:"3202270105930002", nama:"H. MIMIN",                luas:0.540, qU:147,  qN:135  },
+  // 0,540Ha | Urea:49+49+49=147   | NPK:45+45+45=135
+  {id:35, nik:"3202270709580002", nama:"H. PUDIN",                luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:36, nik:"3202270709500008", nama:"HUDRI",                   luas:3.000, qU:825,  qN:750  },
+  // 3,000Ha | Urea:275+275+275=825 | NPK:250+250+250=750
+  {id:37, nik:"3202271508790002", nama:"IIN",                     luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:38, nik:"3202270107480023", nama:"IJUN",                    luas:1.200, qU:330,  qN:300  },
+  // 1,200Ha | Urea:110+110+110=330 | NPK:100+100+100=300
+  {id:39, nik:"3202271821810003", nama:"IRA SRI RAHMAWATI",       luas:3.000, qU:825,  qN:750  },
+  // 3,000Ha | Urea:275+275+275=825 | NPK:250+250+250=750
+  {id:40, nik:"3202276002720001", nama:"IWIN",                    luas:0.240, qU:66,   qN:60   },
+  // 0,240Ha | Urea:22+22+22=66    | NPK:20+20+20=60
+  {id:41, nik:"3202270412820001", nama:"JAELANI",                 luas:0.300, qU:81,   qN:75   },
+  // 0,300Ha | Urea:27+27+27=81    | NPK:25+25+25=75
+  {id:42, nik:"3202270107530001", nama:"JAJA",                    luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:43, nik:"3202271312560002", nama:"JUJU SAMSUDINI",          luas:2.250, qU:618,  qN:561  },
+  // 2,250Ha | Urea:206+206+206=618 | NPK:187+187+187=561
+  {id:44, nik:"3202271217440001", nama:"KAMAL",                   luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:45, nik:"3202271015300001", nama:"KURNEN",                  luas:0.960, qU:264,  qN:240  },
+  // 0,960Ha | Urea:88+88+88=264   | NPK:80+80+80=240
+  {id:46, nik:"3202271015960082", nama:"MAMUN",                   luas:1.200, qU:330,  qN:300  },
+  // 1,200Ha | Urea:110+110+110=330 | NPK:100+100+100=300
+  {id:47, nik:"3202270107490024", nama:"MANSUR",                  luas:1.200, qU:330,  qN:300  },
+  // 1,200Ha | Urea:110+110+110=330 | NPK:100+100+100=300
+  {id:48, nik:"3202270107610045", nama:"M. DADUN",                luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:49, nik:"3202270107560087", nama:"M. JEJEN",                luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:50, nik:"3202270107770041", nama:"M. ODANG SARIPUDIN",      luas:1.050, qU:288,  qN:261  },
+  // 1,050Ha | Urea:96+96+96=288   | NPK:87+87+87=261
+  {id:51, nik:"3202270101670022", nama:"M. SUKARMA",              luas:1.650, qU:453,  qN:411  },
+  // 1,650Ha | Urea:151+151+151=453 | NPK:137+137+137=411
+  {id:52, nik:"3202270308990010", nama:"MUHAMMAD NANDANG JAELANI",luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:53, nik:"3202270508110011", nama:"MUMUH MUKHTAR",           luas:6.000, qU:1650, qN:1500 },
+  // 6,000Ha | Urea:550+550+550=1650 | NPK:500+500+500=1500
+  {id:54, nik:"3202270107490078", nama:"MUSLIH",                  luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:55, nik:"3202270107690061", nama:"NENIH",                   luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:56, nik:"3202274107850108", nama:"OBIN",                    luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:57, nik:"3202270107490001", nama:"PAHRUDIN",                luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+
+  // ══ HALAMAN 3 (No 58–87) ══
+  {id:58, nik:"3202276203610001", nama:"POPON SOPIAH",            luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:59, nik:"3202271117300001", nama:"PUDLI",                   luas:0.750, qU:204,  qN:186  },
+  // 0,750Ha | Urea:68+68+68=204   | NPK:62+62+62=186
+  {id:60, nik:"3202276100855001", nama:"RAHMAT BIN KOMAR",        luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:61, nik:"3202316110982002", nama:"RIJAL",                   luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:62, nik:"3202270107860127", nama:"SAHRUDIN",                luas:0.780, qU:213,  qN:195  },
+  // 0,780Ha | Urea:71+71+71=213   | NPK:65+65+65=195
+  {id:63, nik:"3202270107840046", nama:"SHOLICHIN",               luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:64, nik:"3202274107960001", nama:"SITI MAS ROHILAH",        luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:65, nik:"3202271711980002", nama:"SOMADI",                  luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:66, nik:"3202270208650001", nama:"SUARDI",                  luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:67, nik:"3202270743900002", nama:"SUPARTA",                 luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:68, nik:"3202270301700001", nama:"SUPENDI",                 luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:69, nik:"3202271505090002", nama:"SURYANI",                 luas:1.800, qU:495,  qN:450  },
+  // 1,800Ha | Urea:165+165+165=495 | NPK:150+150+150=450
+  {id:70, nik:"3202274106610001", nama:"TARODIN",                 luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:71, nik:"3202270801075000", nama:"TATI",                    luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:72, nik:"3202274106010001", nama:"TINI ROSTINI",            luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:73, nik:"3202270156010001", nama:"TUMIRAN SAYANG",          luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:74, nik:"3202270107560001", nama:"TATI",                    luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:75, nik:"3202270107720059", nama:"UDIN",                    luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:76, nik:"3202270107720050", nama:"UDIN SAMSUDIN",           luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:77, nik:"3202270107500018", nama:"USEP",                    luas:0.300, qU:81,   qN:75   },
+  // 0,300Ha | Urea:27+27+27=81    | NPK:25+25+25=75
+  {id:78, nik:"3202270209880001", nama:"USEP SAEPUL MALIK",       luas:0.690, qU:189,  qN:171  },
+  // 0,690Ha | Urea:63+63+63=189   | NPK:57+57+57=171
+  {id:79, nik:"3202270203630001", nama:"USUP",                    luas:1.500, qU:411,  qN:375  },
+  // 1,500Ha | Urea:137+137+137=411 | NPK:125+125+125=375
+  {id:80, nik:"3202270107680070", nama:"UTANG",                   luas:2.400, qU:660,  qN:600  },
+  // 2,400Ha | Urea:220+220+220=660 | NPK:200+200+200=600
+  {id:81, nik:"3202270208710048", nama:"ULUN",                    luas:1.050, qU:288,  qN:261  },
+  // 1,050Ha | Urea:96+96+96=288   | NPK:87+87+87=261
+  {id:82, nik:"3202270107700073", nama:"UUS SUHERMAN",            luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:83, nik:"3202270107750073", nama:"YADI",                    luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:84, nik:"3202270107820082", nama:"YAYAN",                   luas:0.900, qU:246,  qN:225  },
+  // 0,900Ha | Urea:82+82+82=246   | NPK:75+75+75=225
+  {id:85, nik:"3202270847500004", nama:"YAYI MULYADI SANJAYA",    luas:0.750, qU:204,  qN:186  },
+  // 0,750Ha | Urea:68+68+68=204   | NPK:62+62+62=186
+  {id:86, nik:"3202270109820082", nama:"YAYAN",                   luas:0.600, qU:165,  qN:150  },
+  // 0,600Ha | Urea:55+55+55=165   | NPK:50+50+50=150
+  {id:87, nik:"3272051402840562", nama:"YOSEP PRAPANCA GUNAWAN",  luas:0.750, qU:204,  qN:186  },
+  // 0,750Ha | Urea:68+68+68=204   | NPK:62+62+62=186
+];
+// ── TOTAL dari foto halaman 3 baris TOTAL: Urea=26.907 kg | NPK=24.428 kg
+
+const KEY='rdkk_kts26v3';const KEYR=KEY+'_r';
+let state=JSON.parse(localStorage.getItem(KEY)||'{}');
+let riwayat=JSON.parse(localStorage.getItem(KEYR)||'[]');
+let mid=null;
+
+function save(){localStorage.setItem(KEY,JSON.stringify(state));localStorage.setItem(KEYR,JSON.stringify(riwayat));}
+function gs(p){const s=state[p.id]||{u:0,n:0};return{sU:p.qU-(s.u||0),sN:p.qN-(s.n||0),dU:s.u||0,dN:s.n||0};}
+function rp(n){return'Rp '+n.toLocaleString('id-ID');}
+function hit(u,n){const kU=Math.ceil(u/50),kN=Math.ceil(n/50),hU=kU*92000,hN=kN*95000;return{kU,kN,hU,hN,tot:hU+hN};}
+function badge(s,q){
+  if(s<=0)return`<span class="badge bempty">HABIS</span>`;
+  if(s<q*.3)return`<span class="badge blow">${s} kg</span>`;
+  return`<span class="badge bok">${s} kg</span>`;
+}
+
+function render(q=''){
+  const tb=document.getElementById('tb');
+  const fs=document.getElementById('fst').value;
+  tb.innerHTML='';
+  let tqU=0,tqN=0,tsU=0,tsN=0;
+  P.forEach(p=>{tqU+=p.qU;tqN+=p.qN;const{sU,sN}=gs(p);tsU+=Math.max(0,sU);tsN+=Math.max(0,sN);});
+  document.getElementById('qu').textContent=tqU.toLocaleString('id-ID');
+  document.getElementById('qp').textContent=tqN.toLocaleString('id-ID');
+  document.getElementById('su').textContent=tsU.toLocaleString('id-ID');
+  document.getElementById('sp').textContent=tsN.toLocaleString('id-ID');
+  const pU=tqU>0?Math.round(tsU/tqU*100):0;
+  const pN=tqN>0?Math.round(tsN/tqN*100):0;
+  document.getElementById('bu').style.width=pU+'%';
+  document.getElementById('bp').style.width=pN+'%';
+  document.getElementById('pu').textContent=pU+'% tersisa';
+  document.getElementById('pp').textContent=pN+'% tersisa';
+  let no=0;
+  P.forEach(p=>{
+    const cari=q.toLowerCase();
+    if(cari&&!p.nama.toLowerCase().includes(cari)&&!p.nik.includes(cari))return;
+    const{sU,sN,dU,dN}=gs(p);
+    const habis=sU<=0&&sN<=0;
+    if(fs==='ada'&&habis)return;
+    if(fs==='habis'&&!habis)return;
+    no++;
+    const h=hit(dU,dN);
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td class="tn">${no}</td>
+      <td class="tnik">${p.nik}</td>
+      <td class="tnama">${p.nama}</td>
+      <td class="tc tluas">${p.luas.toFixed(3)}</td>
+      <td class="tc tu">${p.qU}</td>
+      <td class="tc tu">${dU}</td>
+      <td class="tc">${badge(sU,p.qU)}</td>
+      <td class="tc tu" style="font-size:12px">${dU>0?rp(h.hU):'—'}</td>
+      <td class="tc tp">${p.qN}</td>
+      <td class="tc tp">${dN}</td>
+      <td class="tc">${badge(sN,p.qN)}</td>
+      <td class="tc tp" style="font-size:12px">${dN>0?rp(h.hN):'—'}</td>
+      <td class="tc">${habis?`<span class="btn-done">✓ Lunas</span>`:`<button class="btn-catat" onclick="buka(${p.id})">⚖ Catat</button>`}</td>`;
+    tb.appendChild(tr);
+  });
+}
+
+function ft(){render(document.getElementById('srch').value);}
+
+function buka(id){
+  const p=P.find(x=>x.id===id);if(!p)return;
+  mid=id;
+  const{sU,sN}=gs(p);
+  document.getElementById('mn').textContent=p.nama;
+  document.getElementById('mnik').textContent='NIK: '+p.nik;
+  document.getElementById('msu').textContent=Math.max(0,sU);
+  document.getElementById('msp').textContent=Math.max(0,sN);
+  document.getElementById('iu').max=Math.max(0,sU);
+  document.getElementById('ip').max=Math.max(0,sN);
+  document.getElementById('iu').value=0;
+  document.getElementById('ip').value=0;
+  ht();
+  document.getElementById('mo').classList.add('show');
+}
+function tutup(){document.getElementById('mo').classList.remove('show');mid=null;}
+
+function ht(){
+  const u=parseInt(document.getElementById('iu').value)||0;
+  const n=parseInt(document.getElementById('ip').value)||0;
+  const h=hit(u,n);
+  document.getElementById('cu').textContent=u>0?`${u} kg = ${h.kU} karung × Rp 92.000 = ${rp(h.hU)}`:'—';
+  document.getElementById('cp').textContent=n>0?`${n} kg = ${h.kN} karung × Rp 95.000 = ${rp(h.hN)}`:'—';
+  document.getElementById('mtv').textContent=rp(h.tot);
+}
+
+function konfirm(){
+  const p=P.find(x=>x.id===mid);if(!p)return;
+  const u=parseInt(document.getElementById('iu').value)||0;
+  const n=parseInt(document.getElementById('ip').value)||0;
+  if(u===0&&n===0){toast('⚠ Masukkan jumlah pupuk yang diambil');return;}
+  const{sU,sN}=gs(p);
+  if(u>sU){toast('⚠ Melebihi sisa kuota Urea!');return;}
+  if(n>sN){toast('⚠ Melebihi sisa kuota Phonska!');return;}
+  if(!state[p.id])state[p.id]={u:0,n:0};
+  state[p.id].u+=u;state[p.id].n+=n;
+  const h=hit(u,n);
+  const now=new Date();
+  const wkt=now.toLocaleDateString('id-ID')+' '+now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+  riwayat.unshift({wkt,nama:p.nama,u,n,tot:h.tot});
+  if(riwayat.length>60)riwayat=riwayat.slice(0,60);
+  save();tutup();
+  render(document.getElementById('srch').value);
+  renderRw();
+  toast(`✅ ${p.nama} — Berhasil dicatat`);
+}
+
+function renderRw(){
+  const el=document.getElementById('rwlist');
+  if(!riwayat.length){el.innerHTML='<div class="rw-empty">Belum ada riwayat pengambilan</div>';return;}
+  el.innerHTML=riwayat.map(r=>`
+    <div class="ri">
+      <div class="ri-wkt">${r.wkt}</div>
+      <div class="ri-nama">${r.nama}</div>
+      <div class="ri-det">${r.u>0?`Urea ${r.u}kg`:''}${r.u>0&&r.n>0?' · ':''}${r.n>0?`Phonska ${r.n}kg`:''}</div>
+      <div class="ri-tot">${rp(r.tot)}</div>
+    </div>`).join('');
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+document.getElementById('mo').addEventListener('click',e=>{if(e.target===document.getElementById('mo'))tutup();});
+document.getElementById('tot-ang').textContent=P.length+' Petani';
+render();renderRw();
+
+// ══════════════════════════════════════════════════
+// KASIR PINTAR
+// ══════════════════════════════════════════════════
+let kPetani = null; // petani yang sedang dipilih di kasir
+
+function switchTab(t){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+t).classList.add('active');
+  document.getElementById('panel-'+t).classList.add('active');
+  if(t==='kasir') kRenderRw();
+}
+
+// Cari petani
+function kCari(){
+  const q = document.getElementById('k-srch').value.toLowerCase().trim();
+  const el = document.getElementById('k-results');
+  if(!q){ el.innerHTML='<div class="k-empty-res">Ketik nama petani untuk memulai transaksi</div>'; return; }
+  const hasil = P.filter(p=>p.nama.toLowerCase().includes(q)||p.nik.includes(q));
+  if(!hasil.length){ el.innerHTML='<div class="k-empty-res">Petani tidak ditemukan</div>'; return; }
+  el.innerHTML = hasil.slice(0,8).map(p=>{
+    const{sU,sN}=gs(p);
+    const selClass = kPetani&&kPetani.id===p.id ? 'selected' : '';
+    return `<div class="k-pet-card ${selClass}" onclick="kPilih(${p.id})">
+      <div>
+        <div class="k-pet-nama">${p.nama}</div>
+        <div class="k-pet-nik">${p.nik}</div>
+      </div>
+      <div class="k-pet-kuota">
+        <div class="k-pet-ku">🧪 Urea sisa: ${Math.max(0,sU)} kg</div>
+        <div class="k-pet-kp">🌱 NPK sisa: ${Math.max(0,sN)} kg</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// Pilih petani
+function kPilih(id){
+  kPetani = P.find(x=>x.id===id);
+  if(!kPetani) return;
+  const{sU,sN}=gs(kPetani);
+
+  // Update panel petani
+  document.getElementById('k-trx-petani').classList.remove('empty');
+  document.getElementById('k-trx-panel').classList.add('has-pet');
+  document.getElementById('k-pnama').classList.remove('placeholder');
+  document.getElementById('k-pnama').textContent = kPetani.nama;
+  document.getElementById('k-pnik').textContent = 'NIK: '+kPetani.nik+' · Luas: '+kPetani.luas.toFixed(3)+' Ha';
+
+  // Sisa kuota
+  document.getElementById('k-sisa-u').textContent = Math.max(0,sU)+' kg';
+  document.getElementById('k-sisa-p').textContent = Math.max(0,sN)+' kg';
+
+  // Enable input
+  const iu = document.getElementById('k-inp-u');
+  const ip = document.getElementById('k-inp-p');
+  iu.disabled = sU<=0;
+  ip.disabled = sN<=0;
+  iu.max = Math.max(0,sU);
+  ip.max = Math.max(0,sN);
+  iu.value = 0;
+  ip.value = 0;
+
+  // Tombol karung cepat Urea
+  const karU = document.getElementById('k-kar-u');
+  karU.innerHTML = '';
+  if(sU>0){
+    [50,100,150,200].filter(v=>v<=sU).forEach(v=>{
+      const b=document.createElement('button');
+      b.className='k-karung-btn';
+      b.textContent=v+'kg';
+      b.onclick=()=>{iu.value=v;kHitung();};
+      karU.appendChild(b);
+    });
+    const bmax=document.createElement('button');
+    bmax.className='k-karung-btn';
+    bmax.textContent='MAX';
+    bmax.onclick=()=>{iu.value=sU;kHitung();};
+    karU.appendChild(bmax);
+  }
+
+  // Tombol karung cepat NPK
+  const karP = document.getElementById('k-kar-p');
+  karP.innerHTML='';
+  if(sN>0){
+    [50,100,150,200].filter(v=>v<=sN).forEach(v=>{
+      const b=document.createElement('button');
+      b.className='k-karung-btn';
+      b.textContent=v+'kg';
+      b.onclick=()=>{ip.value=v;kHitung();};
+      karP.appendChild(b);
+    });
+    const bmax=document.createElement('button');
+    bmax.className='k-karung-btn';
+    bmax.textContent='MAX';
+    bmax.onclick=()=>{ip.value=sN;kHitung();};
+    karP.appendChild(bmax);
+  }
+
+  // Update struk kanan
+  document.getElementById('ks-nama').textContent = kPetani.nama;
+  document.getElementById('ks-nik').textContent  = kPetani.nik;
+  document.getElementById('k-bayar').value='';
+
+  kHitung();
+  kCari(); // refresh highlight
+}
+
+// Hitung total
+function kHitung(){
+  const u = parseInt(document.getElementById('k-inp-u').value)||0;
+  const n = parseInt(document.getElementById('k-inp-p').value)||0;
+  const h = hit(u,n);
+
+  // Calc urea
+  document.getElementById('k-calc-u').textContent =
+    u>0 ? `${u}kg = ${h.kU} karung × Rp 92.000 = ${rp(h.hU)}` : '—';
+  document.getElementById('k-calc-p').textContent =
+    n>0 ? `${n}kg = ${h.kN} karung × Rp 95.000 = ${rp(h.hN)}` : '—';
+
+  // Struk kanan
+  document.getElementById('ks-urea').textContent  = u>0?u+' kg':'—';
+  document.getElementById('ks-h-urea').textContent = u>0?rp(h.hU):'—';
+  document.getElementById('ks-npk').textContent   = n>0?n+' kg':'—';
+  document.getElementById('ks-h-npk').textContent = n>0?rp(h.hN):'—';
+  document.getElementById('ks-total').textContent = rp(h.tot);
+
+  // Aktifkan tombol proses
+  const canProses = kPetani && (u>0||n>0);
+  document.getElementById('k-btn-proses').disabled = !canProses;
+
+  kKembalian();
+}
+
+// Hitung kembalian
+function kKembalian(){
+  const u = parseInt(document.getElementById('k-inp-u').value)||0;
+  const n = parseInt(document.getElementById('k-inp-p').value)||0;
+  const h = hit(u,n);
+  const bayar = parseInt(document.getElementById('k-bayar').value)||0;
+  const kembalian = bayar - h.tot;
+  const el = document.getElementById('ks-kembalian');
+  if(bayar===0){ el.textContent='Rp 0'; el.className='k-kem-val'; return; }
+  el.textContent = rp(Math.abs(kembalian));
+  el.className = kembalian>=0 ? 'k-kem-val' : 'k-kem-val kurang';
+}
+
+// Proses transaksi
+function kProses(){
+  if(!kPetani) return;
+  const u = parseInt(document.getElementById('k-inp-u').value)||0;
+  const n = parseInt(document.getElementById('k-inp-p').value)||0;
+  if(u===0&&n===0){ toast('⚠ Masukkan jumlah pupuk'); return; }
+
+  const{sU,sN}=gs(kPetani);
+  if(u>sU){ toast('⚠ Melebihi sisa kuota Urea!'); return; }
+  if(n>sN){ toast('⚠ Melebihi sisa kuota NPK!');  return; }
+
+  const h = hit(u,n);
+  const bayar = parseInt(document.getElementById('k-bayar').value)||0;
+  const kembalian = bayar - h.tot;
+
+  // Kurangi kuota
+  if(!state[kPetani.id]) state[kPetani.id]={u:0,n:0};
+  state[kPetani.id].u += u;
+  state[kPetani.id].n += n;
+
+  const now = new Date();
+  const wkt = now.toLocaleDateString('id-ID')+' '+now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+  const tglLengkap = now.toLocaleDateString('id-ID',{weekday:'long',year:'numeric',month:'long',day:'numeric'})+
+    ', '+now.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+
+  // Simpan ke riwayat
+  riwayat.unshift({wkt,nama:kPetani.nama,u,n,tot:h.tot,bayar,kembalian,sumber:'kasir'});
+  if(riwayat.length>100) riwayat=riwayat.slice(0,100);
+  save();
+
+  // Tampilkan struk
+  document.getElementById('sc-tgl').textContent   = tglLengkap;
+  document.getElementById('sc-nama').textContent  = kPetani.nama;
+  document.getElementById('sc-nik').textContent   = kPetani.nik;
+  document.getElementById('sc-total').textContent = rp(h.tot);
+  document.getElementById('sc-bayar').textContent = bayar>0?rp(bayar):'—';
+  document.getElementById('sc-kembalian').textContent = bayar>0?rp(Math.max(0,kembalian)):'—';
+
+  let items='';
+  if(u>0) items+=`<div class="ksc-row"><span class="ksc-row-label">🧪 Urea ${u}kg (${h.kU} karung)</span><span class="ksc-row-val">${rp(h.hU)}</span></div>`;
+  if(n>0) items+=`<div class="ksc-row"><span class="ksc-row-label">🌱 NPK ${n}kg (${h.kN} karung)</span><span class="ksc-row-val">${rp(h.hN)}</span></div>`;
+  document.getElementById('sc-items').innerHTML = items;
+
+  document.getElementById('k-sukses-overlay').classList.add('show');
+
+  // Refresh RDKK table & riwayat
+  render(document.getElementById('srch').value);
+  renderRw();
+  kRenderRw();
+}
+
+// Tutup struk & reset kasir
+function kTutupStruk(){
+  document.getElementById('k-sukses-overlay').classList.remove('show');
+  kReset();
+}
+
+function kReset(){
+  kPetani = null;
+  document.getElementById('k-srch').value='';
+  document.getElementById('k-results').innerHTML='<div class="k-empty-res">Ketik nama petani untuk memulai transaksi</div>';
+  document.getElementById('k-trx-petani').classList.add('empty');
+  document.getElementById('k-trx-panel').classList.remove('has-pet');
+  document.getElementById('k-pnama').className='k-trx-pnama placeholder';
+  document.getElementById('k-pnama').textContent='Pilih petani dari daftar pencarian';
+  document.getElementById('k-pnik').textContent='';
+  document.getElementById('k-sisa-u').textContent='— kg';
+  document.getElementById('k-sisa-p').textContent='— kg';
+  const iu=document.getElementById('k-inp-u');
+  const ip=document.getElementById('k-inp-p');
+  iu.value=0; iu.disabled=true;
+  ip.value=0; ip.disabled=true;
+  document.getElementById('k-calc-u').textContent='—';
+  document.getElementById('k-calc-p').textContent='—';
+  document.getElementById('k-kar-u').innerHTML='';
+  document.getElementById('k-kar-p').innerHTML='';
+  document.getElementById('ks-nama').textContent='—';
+  document.getElementById('ks-nik').textContent='—';
+  document.getElementById('ks-urea').textContent='— kg';
+  document.getElementById('ks-h-urea').textContent='—';
+  document.getElementById('ks-npk').textContent='— kg';
+  document.getElementById('ks-h-npk').textContent='—';
+  document.getElementById('ks-total').textContent='Rp 0';
+  document.getElementById('ks-kembalian').textContent='Rp 0';
+  document.getElementById('k-bayar').value='';
+  document.getElementById('k-btn-proses').disabled=true;
+}
+
+// Render riwayat kasir
+function kRenderRw(){
+  const el = document.getElementById('k-rw-list');
+  if(!riwayat.length){ el.innerHTML='<div class="k-rw-empty">Belum ada transaksi</div>'; return; }
+  el.innerHTML = riwayat.slice(0,20).map(r=>`
+    <div class="k-rw-item">
+      <div class="k-rw-wkt">${r.wkt}</div>
+      <div class="k-rw-nama">${r.nama}</div>
+      <div class="k-rw-det">${r.u>0?`Urea ${r.u}kg`:''}${r.u>0&&r.n>0?' · ':''}${r.n>0?`NPK ${r.n}kg`:''}</div>
+      <div class="k-rw-tot">${rp(r.tot)}</div>
+    </div>`).join('');
+}
+
+// Init kasir input disabled
+document.getElementById('k-inp-u').disabled = true;
+document.getElementById('k-inp-p').disabled = true;
+
+// Tutup struk overlay klik luar
+document.getElementById('k-sukses-overlay').addEventListener('click',function(e){
+  if(e.target===this) kTutupStruk();
+});
+</script>
+</body>
+</html>
